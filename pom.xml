@@ -86,7 +86,7 @@
         <maven-scala-plugin.version>4.9.0</maven-scala-plugin.version>
         <maven-antlr4-plugin.version>4.3</maven-antlr4-plugin.version>
         <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
-        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
         <maven-dependency-plugin.version>3.3.0</maven-dependency-plugin.version>
         <maven-antrun-plugin.version>3.0.0</maven-antrun-plugin.version>
         <maven-jacoco-plugin.version>0.8.7</maven-jacoco-plugin.version>
@@ -114,7 +114,6 @@
         <cglib.version>2.2.2</cglib.version>
         <curator.version>5.7.0</curator.version>
         <mockito.version>4.11.0</mockito.version>
-        <parquet-jackson.version>1.13.1</parquet-jackson.version>
         <parquet-avro.version>1.15.2</parquet-avro.version>
         <mysql-jdbc.version>8.0.33</mysql-jdbc.version>
         <orc-core.version>1.8.3</orc-core.version>
@@ -374,13 +373,6 @@
                 <groupId>org.apache.parquet</groupId>
                 <artifactId>parquet-avro</artifactId>
                 <version>${parquet-avro.version}</version>
-            </dependency>
-
-            <!-- TODO: Remove this parquet-jackson when upgrade JDK to 17 or higher -->
-            <dependency>
-                <groupId>org.apache.parquet</groupId>
-                <artifactId>parquet-jackson</artifactId>
-                <version>${parquet-jackson.version}</version>
             </dependency>
 
             <dependency>
@@ -1414,6 +1406,23 @@
             <id>aliyun-oss-sdk</id>
             <properties>
                 <aliyun-sdk-dependency-scope>compile</aliyun-sdk-dependency-scope>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>java8</id>
+            <properties>
+                <java.target.version>8</java.target.version>
+                <java.source.version>8</java.source.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>java21</id>
+            <activation>
+                <jdk>[21,)</jdk>
+            </activation>
+            <properties>
+                <java.target.version>21</java.target.version>
             </properties>
         </profile>
     </profiles>
