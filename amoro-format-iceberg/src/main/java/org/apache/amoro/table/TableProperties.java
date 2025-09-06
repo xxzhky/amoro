@@ -161,6 +161,7 @@ public class TableProperties {
    *     0.9.0
    */
   @Deprecated public static final String BASE_SNAPSHOT_KEEP_MINUTES = "snapshot.base.keep.minutes";
+
   /**
    * @deprecated Use {@link TableProperties#SNAPSHOT_KEEP_DURATION_DEFAULT } instead; will be
    *     removed in 0.9.0

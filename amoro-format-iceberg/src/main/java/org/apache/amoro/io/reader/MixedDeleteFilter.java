@@ -205,13 +205,17 @@ public abstract class MixedDeleteFilter<T> {
     return null;
   }
 
-  /** @return The data not in equity delete file */
+  /**
+   * @return The data not in equity delete file
+   */
   public CloseableIterable<T> filter(CloseableIterable<T> records) {
     return new CloseableIterableWrapper<>(
         apply(apply(records, applyPosDeletes().negate()), applyEqDeletes().negate()), eqPredicate);
   }
 
-  /** @return The data in equity delete file */
+  /**
+   * @return The data in equity delete file
+   */
   public CloseableIterable<T> filterNegate(CloseableIterable<T> records) {
     return new CloseableIterableWrapper<>(
         apply(records, applyEqDeletes().or(applyPosDeletes())), eqPredicate);

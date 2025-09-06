@@ -46,15 +46,18 @@ public final class Action {
 
   /** supported table formats of this action */
   private final TableFormat[] formats;
+
   /**
    * storage code of this action, normally this code should be identical within supported formats
    */
   private final int code;
+
   /**
    * the weight number of this action, the bigger the weight number, the higher positions of
    * schedulers or front pages
    */
   private final int weight;
+
   /** description of this action, will be shown in front pages */
   private final String desc;
 

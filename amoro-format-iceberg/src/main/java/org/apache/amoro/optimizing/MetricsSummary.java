@@ -56,7 +56,10 @@ public class MetricsSummary {
   private long rewriteDataRecordCnt = 0;
   private long rewritePosDataSize = 0;
   private int rewritePosDataFileCnt = 0;
-  /** @deprecated since 0.7.0, will be removed in 0.8.0 */
+
+  /**
+   * @deprecated since 0.7.0, will be removed in 0.8.0
+   */
   @Deprecated private int reRowDeletedDataFileCnt = 0;
 
   private long rewritePosDataRecordCnt = 0;
@@ -64,19 +67,25 @@ public class MetricsSummary {
   private int eqDeleteFileCnt = 0;
   private long eqDeleteRecordCnt = 0;
   private long positionDeleteSize = 0;
-  /** @deprecated since 0.7.0, will be removed in 0.8.0 */
+
+  /**
+   * @deprecated since 0.7.0, will be removed in 0.8.0
+   */
   @Deprecated private long positionalDeleteSize = 0;
 
   private int posDeleteFileCnt = 0;
   private long posDeleteRecordCnt = 0;
 
-  /** @deprecated since 0.7.0, will be removed in 0.8.0 */
+  /**
+   * @deprecated since 0.7.0, will be removed in 0.8.0
+   */
   @Deprecated private long newFileSize = 0;
 
   @Deprecated private int newFileCnt = 0;
   private long newDataSize = 0;
   private int newDataFileCnt = 0;
   private long newDataRecordCnt = 0;
+
   /** Only position delete files will be generated */
   private long newDeleteSize = 0;
 

@@ -28,7 +28,9 @@ import java.util.Map;
  */
 public interface ProcessState {
 
-  /** @return unique identifier of the process. */
+  /**
+   * @return unique identifier of the process.
+   */
   long getId();
 
   /**
@@ -37,13 +39,19 @@ public interface ProcessState {
    */
   String getName();
 
-  /** @return start time of the process. */
+  /**
+   * @return start time of the process.
+   */
   long getStartTime();
 
-  /** @return the action of the process. */
+  /**
+   * @return the action of the process.
+   */
   Action getAction();
 
-  /** @return the status of the process. */
+  /**
+   * @return the status of the process.
+   */
   ProcessStatus getStatus();
 
   /**
@@ -54,7 +62,9 @@ public interface ProcessState {
    */
   Map<String, String> getSummary();
 
-  /** @return the reason of process failure, null if the process has not failed yet. */
+  /**
+   * @return the reason of process failure, null if the process has not failed yet.
+   */
   String getFailedReason();
 
   /**
