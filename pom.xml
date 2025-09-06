@@ -94,7 +94,7 @@
         <maven-dependency-plugin.version>3.3.0</maven-dependency-plugin.version>
         <maven-antrun-plugin.version>3.0.0</maven-antrun-plugin.version>
         <maven-jacoco-plugin.version>0.8.7</maven-jacoco-plugin.version>
-        <maven-spotless-plugin.version>2.27.2</maven-spotless-plugin.version>
+        <maven-spotless-plugin.version>2.46.1</maven-spotless-plugin.version>
         <maven-thrift-plugin.version>0.1.11</maven-thrift-plugin.version>
         <maven-build-helper-plugin.version>3.2.0</maven-build-helper-plugin.version>
         <maven-apache-rat-plugin.version>0.15</maven-apache-rat-plugin.version>
@@ -1110,7 +1110,7 @@
                     <configuration>
                         <java>
                             <googleJavaFormat>
-                                <version>1.7</version>
+                                <version>1.25.0</version> <!-- JDK17+ runtime, works under JDK21 -->
                             </googleJavaFormat>
                             <removeUnusedImports/>
                             <importOrder>
