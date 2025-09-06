@@ -45,6 +45,7 @@ public class RocksDBSetSpilledState extends RocksDBCacheState<Set<ByteArrayWrapp
   protected ThreadLocal<BinaryRowDataSerializerWrapper> joinKeySerializerThreadLocal =
       new ThreadLocal<>();
   private final BinaryRowDataSerializerWrapper joinKeySerializer;
+
   /** Multi-threads would put and delete the joinKeys and Set<ByteArrayWrapper> in the rocksdb. */
   private final Object rocksDBLock = new Object();
 

@@ -62,6 +62,7 @@ public class MixedFormatFileWriter extends AbstractStreamOperator<WriteResult>
   private transient TaskWriter<RowData> writer;
   private transient int subTaskId;
   private transient int attemptId;
+
   /**
    * Load table in runtime, because that table's refresh method will be invoked in serialization.
    * And it will set {@link org.apache.hadoop.security.UserGroupInformation#authenticationMethod} to

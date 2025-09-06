@@ -56,17 +56,23 @@ public class PluginConfiguration {
     return new PluginConfiguration(name, enabled, props);
   }
 
-  /** @return Plugin name. */
+  /**
+   * @return Plugin name.
+   */
   public String getName() {
     return name;
   }
 
-  /** @return True if plugin will be installed. */
+  /**
+   * @return True if plugin will be installed.
+   */
   public boolean isEnabled() {
     return enabled;
   }
 
-  /** @return Plugin installation properties. */
+  /**
+   * @return Plugin installation properties.
+   */
   public Map<String, String> getProperties() {
     return Collections.unmodifiableMap(properties);
   }

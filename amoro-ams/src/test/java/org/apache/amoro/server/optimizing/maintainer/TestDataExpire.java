@@ -578,7 +578,8 @@ public class TestDataExpire extends ExecutorTestBase {
 
   protected List<Record> readSortedKeyedRecords(KeyedTable keyedTable) {
     return tableTestHelper()
-        .readKeyedTable(keyedTable, Expressions.alwaysTrue(), null, false, false).stream()
+        .readKeyedTable(keyedTable, Expressions.alwaysTrue(), null, false, false)
+        .stream()
         .sorted(Comparator.comparing(o -> o.get(0, Integer.class)))
         .collect(Collectors.toList());
   }

@@ -730,8 +730,7 @@ public class IcebergTableMaintainer implements TableMaintainer {
               fileEntries.add(e);
             }
           });
-      fileEntries
-          .parallelStream()
+      fileEntries.parallelStream()
           .filter(e -> willNotRetain(e, expirationConfig, partitionFreshness))
           .forEach(expiredFiles::addFile);
     } catch (IOException e) {
@@ -743,7 +742,7 @@ public class IcebergTableMaintainer implements TableMaintainer {
   private Comparable<?> getExpireValue(
       DataExpirationConfig expirationConfig, Types.NestedField field, long expireTimestamp) {
     switch (field.type().typeId()) {
-        // expireTimestamp is in milliseconds, TIMESTAMP type is in microseconds
+      // expireTimestamp is in milliseconds, TIMESTAMP type is in microseconds
       case TIMESTAMP:
         return expireTimestamp * 1000;
       case LONG:
