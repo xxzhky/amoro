@@ -31,8 +31,7 @@
     <url>https://amoro.apache.org</url>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.release>21</maven.compiler.release>
         <hive.version>2.1.1</hive.version>
         <airlift.version>214</airlift.version>
         <airlift-units.version>1.6</airlift-units.version>
@@ -577,9 +576,9 @@
                 <configuration>
                     <skip>${skip-build-mixed-format-trino}</skip>
                     <skipMain>${skip-build-mixed-format-trino}</skipMain>
+                    <release>${maven.compiler.release}</release>
                     <verbose>true</verbose>
                     <fork>true</fork>
-                    <compilerVersion>17</compilerVersion>
                 </configuration>
             </plugin>
 
@@ -618,7 +617,7 @@
                     <skip>true</skip>
                     <java>
                         <googleJavaFormat>
-                            <version>1.15.0</version>
+                            <version>1.25.0</version> <!-- JDK17+ runtime, works under JDK21 -->
                         </googleJavaFormat>
                     </java>
                 </configuration>
