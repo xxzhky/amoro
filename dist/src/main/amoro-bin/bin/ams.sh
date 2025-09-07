@@ -22,12 +22,36 @@ CURRENT_DIR="$( cd "$(dirname "$0")" ; pwd -P )"
 
 source ${CURRENT_DIR}/load-config.sh
 
-
-
-JAVA_OPTS="-server -XX:+UseG1GC -XX:MaxGCPauseMillis=200 \
--Xloggc:$AMORO_LOG_DIR/gc.log -XX:+PrintGCDateStamps -XX:+IgnoreUnrecognizedVMOptions -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=10 -XX:GCLogFileSize=10M \
--Xms${JVM_XMS_CONFIG}m -Xmx${JVM_XMX_CONFIG}m \
--verbose:gc -XX:+PrintGCDetails \
+JAVA_OPTS="-server \
+-Xms${JVM_XMS_CONFIG}G \
+-Xmx${JVM_XMX_CONFIG}G \
+-XX:InitialRAMPercentage=80 \
+-XX:MaxRAMPercentage=80 \
+-XX:G1HeapRegionSize=32M \
+-XX:+ExplicitGCInvokesConcurrent \
+-XX:+ExitOnOutOfMemoryError \
+-XX:+HeapDumpOnOutOfMemoryError \
+-XX:-OmitStackTraceInFastThrow \
+-XX:ReservedCodeCacheSize=512M \
+-XX:PerMethodRecompilationCutoff=10000 \
+-XX:PerBytecodeRecompilationCutoff=10000 \
+-Djdk.attach.allowAttachSelf=true \
+-Djdk.nio.maxCachedBufferSize=2000000 \
+-Dfile.encoding=UTF-8 \
+-XX:+UnlockDiagnosticVMOptions \
+-XX:GCLockerRetryAllocationCount=40 \
+-XX:+EnableDynamicAgentLoading \
+-XX:InitiatingHeapOccupancyPercent=35 \
+-XX:G1HeapWastePercent=10 \
+-XX:+UseG1GC \
+-XX:+UseStringDeduplication \
+-XX:+AlwaysPreTouch \
+-XX:+DisableExplicitGC \
+-XX:+UseNUMA \
+-XX:+PrintFlagsFinal \
+-XX:NativeMemoryTracking=summary \
+-XX:+IgnoreUnrecognizedVMOptions \
+-Xlog:gc*,gc+heap*,gc+metaspace*:file=${AMORO_LOG_DIR}/gc-%t.log::filecount=100,filesize=20M:time,level,tags \
 --add-opens=java.base/java.lang=ALL-UNNAMED \
 --add-opens=java.base/java.lang.invoke=ALL-UNNAMED \
 --add-opens=java.base/java.lang.reflect=ALL-UNNAMED \
