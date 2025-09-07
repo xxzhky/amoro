@@ -44,7 +44,7 @@ if [ ! -f $STDERR_LOG ];then
     touch $STDERR_LOG
 fi
 
-# get jdk major version（such as 8, 11, 17）
+# get jdk major version（such as 8, 11, 17, 21）
 JAVA_VERSION=$(java -version 2>&1 | head -1 | cut -d'"' -f2 | cut -d'.' -f1)
 
 # base jvm parameter
