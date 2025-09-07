@@ -86,7 +86,6 @@
                                     <include>org.apache.parquet:parquet-format</include>
                                     <include>org.apache.parquet:parquet-format-structures</include>
                                     <include>org.apache.parquet:parquet-encoding</include>
-                                    <include>org.apache.parquet:parquet-jackson</include>
                                     <include>org.apache.iceberg:iceberg-arrow</include>
                                     <include>org.apache.iceberg:iceberg-hive-metastore</include>
                                     <include>org.apache.iceberg:iceberg-spark</include>
