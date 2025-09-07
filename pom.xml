@@ -1109,6 +1109,7 @@
                                 <version>1.25.0</version> <!-- JDK17+ runtime, works under JDK21 -->
                             </googleJavaFormat>
                             <removeUnusedImports/>
+                            <removeWildcardImports/>
                             <importOrder>
                                 <order>,javax,java,\\#</order>
                             </importOrder>
