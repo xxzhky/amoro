@@ -1,0 +1,27 @@
+According to your environment and needs, you can choose to build with different profiles and options. Here are some common build commands:
+In fact you can build with different profiles and options according to your environment and needs, here are some common build commands，
+and usually we build with hadoop3 profile, and specify flink and spark version for optimizer module,  and you can also build with hadoop2 profile if you need to use hadoop2.x.
+The first build command is the one we usually use, because it builds all modules except amoro-mixed-trino, which requires JDK 21, and most users may not need this module.
+The 7th build command is used to build a distribution package with all formats integrated, which is convenient for users to use directly.
+
+# 1.build all without amoro-mixed-trino （hadoop：default is 3.4）
+mvn -T 8 clean package -DskipTests -Phadoop3 -Dflink-optimizer.flink-version=1.19.1 -Dspark-optimizer.spark-version=3.5.3
+
+
+# 2.Build with hadoop 2.x(the default is 3.4.x)
+-Phadoop2 -Phadoop3
+# 3.Specify Flink version for Flink optimizer(the default is 1.20.0)
+-Dflink-optimizer.flink-version=1.19.1
+# 4.Specify Spark version for Spark optimizer(the default is 3.3.3)
+-Dspark-optimizer.spark-version=3.5.3
+# 5.Only Build amoro-mixed-trino module under JDK 21
+ mvn clean package -DskipTests -Pformat-mixed-format-trino,build-mixed-format-trino -pl 'amoro-format-mixed/amoro-mixed-trino' -am
+
+# 6.Build all modules:
+mvn clean package -DskipTests -Phadoop3 -Pbuild-mixed-format-trino -Dflink-optimizer.flink-version=1.19.1 -Dspark-optimizer.spark-version=3.5.3
+
+# 7.Build a distribution package with all formats integrated:
+mvn -T 8 clean package -DskipTests -Phadoop3 -Psupport-all-formats -Dflink-optimizer.flink-version=1.19.1 -Dspark-optimizer.spark-version=3.5.3
+
+# 8.Build a distribution package with all formats and mixed trino integrated:
+mvn -T 8 clean package -Phadoop3 -Psupport-all-formats -Pbuild-mixed-format-trino -DskipTests -Dflink-optimizer.flink-version=1.19.1 -Dspark-optimizer.spark-version=3.5.3
